@@ -26,7 +26,12 @@ data:
       username: rahim
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2025-12-11T01:49:27Z"
   name: aws-auth
   namespace: kube-system
-  uid: 33956aae-bab6-40e4-af5b-8e3b202d922e
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::<account-id>:role/<role-name>
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
