@@ -12,15 +12,10 @@ data:
       - roboshop-trainee
       userarn: arn:aws:iam::614388036472:user/suresh
       username: suresh
-      
+
 kind: ConfigMap
 metadata:
   name: aws-auth
-  namespace: kube-system
-data:
-  mapRoles: |
-    - rolearn: arn:aws:iam::<account-id>:role/<role-name>
-      username: system:node:{{EC2PrivateDNSName}}
-      groups:
-        - system:bootstrappers
-        - system:nodes
+  namespace: kube-system|
+    resourceVersion: "1030"
+    uid: 9b1c8e5a-0c3d-4f1b-9c8e-2b1a2c3d4e5f
